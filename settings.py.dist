@@ -1,0 +1,6 @@
+PYFILES_BACKEND = "pyfiles.storages.diskstorage.DiskStorage"
+
+PYFILES_BACKEND_OPTIONS = {
+    "basepath": "/tmp/tmpdir",
+    "base_url": "http://localhost:8000"
+}

@@ -1,0 +1,3 @@
+bonobo
+requests>=2.19,<2.20
+git+git://github.com/jrmi/pyfiles@d6ec952
