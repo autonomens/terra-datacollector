@@ -1,5 +1,4 @@
 import logging
-from datetime import date
 
 from bonobo.config import Configurable, Option, Service
 
@@ -21,7 +20,4 @@ class OverpassExtract(Configurable):
             logger.error(response.text)
             raise RuntimeError('Overpass query fails')
 
-        yield {
-            'content': response.content.decode('utf-8'),
-            'version': date.today().strftime('%Y.%m.%d')
-        }
+        yield response.content

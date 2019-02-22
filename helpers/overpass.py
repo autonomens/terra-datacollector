@@ -2,6 +2,7 @@ import bonobo
 import requests
 from pyfiles.storages import get_storage
 
+from etl.common import ContentWithDateAsVersion
 from etl.overpass import OverpassExtract
 from etl.pyfiles import PyfilesLoad
 
@@ -21,6 +22,7 @@ def get_services(settings, **options):
 def get_graph(query, namespace, filename, **options):
     graph = bonobo.Graph(
         OverpassExtract(query),
+        ContentWithDateAsVersion(),
         PyfilesLoad(namespace, filename)
     )
     return graph

@@ -1,4 +1,5 @@
 import logging
+from datetime import date
 
 from bonobo.config import Configurable, Option, Service
 
@@ -18,3 +19,11 @@ class HTTPGet(Configurable):
             raise RuntimeError(f'Request fails: {self.url}')
         properties[self.content] = response.text
         yield properties
+
+
+class ContentWithDateAsVersion(Configurable):
+    def __call__(self, content):
+        yield {
+            'content': content,
+            'version': date.today().strftime('%Y.%m.%d')
+        }
