@@ -4,14 +4,17 @@ from helpers import overpass
 AREA_ID = 3600000000 + 8654
 
 QUERY = f'''
-    [out:csv(::id,::lat,::lon,name)];
+    [maxsize:1073741824];
     area({AREA_ID})->.searchArea;
-    nwr["aeroway"="aerodrome"]["iata"](area.searchArea);
-    out center;
+    (
+        way["highway"="trunk"](area.searchArea);
+        way["highway"="primary"](area.searchArea);
+    );
+    out body;>;out skel qt;
 '''
 
 NAMESPACE = 'PACA:sud_foncier_eco'
-FILENAME = 'osm_airport.csv'
+FILENAME = 'osm_nationales.xml'
 
 if __name__ == '__main__':
     overpass.main(settings, QUERY, NAMESPACE, FILENAME)
