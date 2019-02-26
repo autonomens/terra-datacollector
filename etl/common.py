@@ -16,10 +16,9 @@ class HTTPGet(Configurable):
         response = http.get(properties[self.url])
         if not response.ok:
             logger.error(response.text)
-            raise RuntimeError(f'Request fails: {self.url}')
-        properties[self.content] = response.text
+            raise RuntimeError(f'Request fails: {properties[self.url]}')
+        properties[self.content] = response.content
         yield properties
-
 
 class ContentWithDateAsVersion(Configurable):
     def __call__(self, content):
