@@ -7,13 +7,13 @@ from etl.common import HTTPGet
 from etl.opendatasoft import OpendatasoftExtract
 from etl.pyfiles import PyfilesLoad
 
-
 OPENDATASOFT_PORTAL = 'https://data.sncf.com'
 DATASET_ID = 'liste-des-gares'
 FORMAT = 'csv'
 
 NAMESPACE = 'FR:SNCF'
 FILENAME = 'liste-des-gares.csv'
+
 
 def get_services(**options):
     pyfile_storage = get_storage(
@@ -25,6 +25,7 @@ def get_services(**options):
         'pyfile_storage': pyfile_storage,
         'http': requests.Session(),
     }
+
 
 def get_graph(**options):
     graph = bonobo.Graph(
@@ -40,6 +41,7 @@ def get_graph(**options):
         )
     )
     return graph
+
 
 if __name__ == '__main__':
     parser = bonobo.get_argument_parser()
