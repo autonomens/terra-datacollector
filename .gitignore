@@ -1,0 +1,17 @@
+# Python
+*.pyc
+
+# Local settings
+settings.py
+
+# Docker local settings
+docker.env
+
+# IDE settings
+/.vscode
+
+# Virtualenv
+/venv/
+
+# Tests
+.tox
