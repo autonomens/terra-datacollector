@@ -43,7 +43,7 @@ class OpendatasoftExtract(Configurable):
 
     def date2version(self, str_date):
         # ISO date, just cut it
-        return str_date[0:10].replace('-', '.')
+        return str_date[:10].replace('-', '.')
 
     def get_export_url(self, http, exports_url, format):
         result = http.get(exports_url)
