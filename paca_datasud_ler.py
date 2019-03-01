@@ -1,4 +1,4 @@
-import settings
+import settings as pyfile_settings
 from helpers import ckan3
 
 
@@ -10,4 +10,4 @@ NAMESPACE = 'FR:datasud'
 FILENAME = RESSOURCE
 
 if __name__ == '__main__':
-    ckan3.main(settings, CKAN_PORTAL, DATASET_ID, RESSOURCE, NAMESPACE, FILENAME)
+    ckan3.main(pyfile_settings, CKAN_PORTAL, DATASET_ID, RESSOURCE, NAMESPACE, FILENAME)

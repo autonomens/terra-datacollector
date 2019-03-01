@@ -2,7 +2,7 @@ import bonobo
 import requests
 from pyfiles.storages import get_storage
 
-import settings
+import settings as pyfile_settings
 from etl.common import HTTPGet
 from etl.opendatasoft import OpendatasoftExtract
 from etl.pyfiles import PyfilesLoad
@@ -17,8 +17,8 @@ FILENAME = 'liste-des-gares.csv'
 
 def get_services(**options):
     pyfile_storage = get_storage(
-        settings.PYFILES_BACKEND,
-        settings.PYFILES_BACKEND_OPTIONS
+        pyfile_settings.BACKEND,
+        pyfile_settings.BACKEND_OPTIONS
     )
 
     return {
