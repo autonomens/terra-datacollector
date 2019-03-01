@@ -1,4 +1,4 @@
-import settings
+import settings as pyfile_settings
 from helpers import overpass
 
 AREA_ID = 3600000000 + 8654
@@ -17,4 +17,4 @@ NAMESPACE = 'PACA:sud_foncier_eco'
 FILENAME = 'osm_nationales.xml'
 
 if __name__ == '__main__':
-    overpass.main(settings, QUERY, NAMESPACE, FILENAME)
+    overpass.main(pyfile_settings, QUERY, NAMESPACE, FILENAME)

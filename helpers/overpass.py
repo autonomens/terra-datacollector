@@ -7,10 +7,10 @@ from etl.overpass import OverpassExtract
 from etl.pyfiles import PyfilesLoad
 
 
-def get_services(settings, **options):
+def get_services(pyfile_settings, **options):
     pyfile_storage = get_storage(
-        settings.PYFILES_BACKEND,
-        settings.PYFILES_BACKEND_OPTIONS
+        pyfile_settings.BACKEND,
+        pyfile_settings.BACKEND_OPTIONS
     )
 
     return {
